@@ -1,0 +1,25 @@
+buildscript {
+    ext {
+        buildToolsVersion = "34.0.0"
+        // MediaProjection background capture is only reliable from Android 10+ (Q),
+        // and the foreground-service-type API used here requires it as a practical floor.
+        minSdkVersion = 29
+        compileSdkVersion = 34
+        targetSdkVersion = 34
+        ndkVersion = "26.1.10909125"
+        kotlinVersion = "1.9.22"
+    }
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+    dependencies {
+        classpath("com.android.tools.build:gradle")
+        classpath("com.facebook.react:react-native-gradle-plugin")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin")
+        classpath("de.undercouch:gradle-download-task:5.6.0")
+    }
+}
+
+apply plugin: "com.facebook.react.rootproject"
